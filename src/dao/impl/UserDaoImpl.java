@@ -23,5 +23,21 @@ public class UserDaoImpl implements UserDao {
 		JDBCOperation.delUserById(toid);
 	}
 
+	@Override
+	public void insertUser(User user) {
+		JDBCOperation.addUser(user);
+		
+	}
+
+	@Override
+	public User findUserById(Integer toid) {
+		return JDBCOperation.findUserById(toid);
+	}
+
+	@Override
+	public void updateUserById(User user) {
+		JDBCOperation.updateUserById(user);
+	}
+
 
 }

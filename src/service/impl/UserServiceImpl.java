@@ -33,4 +33,21 @@ public class UserServiceImpl implements UserService{
 		userDao.delUserById(toid);
 	}
 
+	@Override
+	public void saveUser(User user) {
+		userDao.insertUser(user);
+		
+	}
+
+	@Override
+	public User queryUserById(Integer toid) {
+		return userDao.findUserById(toid);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		userDao.updateUserById(user);
+		
+	}
+
 }

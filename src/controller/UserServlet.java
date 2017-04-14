@@ -16,6 +16,11 @@ import service.impl.UserServiceImpl;
 /**
  * Servlet implementation class UserServlet
  */
+/**
+ * 员工列表Servlet
+ * @author Administrator
+ *
+ */
 @WebServlet("/userServlet")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
