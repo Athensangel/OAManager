@@ -3,8 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/base.css" type="text/css" />
-<link rel="stylesheet" href="css/menu.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/base.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 </head>
 <body target="main">
@@ -22,24 +22,30 @@
               </div>
             </li>
             <li>
-			<a href='archives.jsp' target='main'>部门管理</a> 
+            <div class='items'>
+                <div class='fllct'><a href='archives.jsp' target='main'>部门管理</a></div>
+                </div>
 			</li>
             <li>
               <div class='items'>
                 <div class='fllct'><a href='archives.jsp' target='main'>产品管理</a></div>
+                </div>
             </li>
 			<li>
               <div class='items'>
                 <div class='fllct'><a href='archives.jsp' target='main'>员工列表</a></div>
+                </div>
             </li>
 			<li>
               <div class='items'>
                 <div class='fllct'><a href='archives.jsp' target='main'>订单列表</a></div>
+                </div>
             </li>
 			<li>
               <div class='items'>
                 <div class='fllct'><a href='archives.jsp' target='main'>
 				我的私信<font color='red'>(2)</font></a>
+				</div>
 				</div>
             </li>
           </ul>
@@ -52,11 +58,16 @@
         <dd style='display:block' class='sitem' id='items2_1'>
           <ul class='sitemu'>
             <li>
-			 <a href='' target='_blank'>修改账号</a>
+			 <!-- <a href='' target='_blank'>修改账号</a> -->
+			  <div class='items'>
+                <div class='fllct'><a href='archives.jsp' target='main'>修改账号</a></div>
+                </div>
 			</li>
-            <li><a href='' target='_blank'>
-            详细信息设置
-			</a></li>
+            <li>
+			 <div class='items'>
+                <div class='fllct'><a href='archives.jsp' target='main'>详细信息设置</a></div>
+                </div>
+			</li>
           </ul>
         </dd>
       </dl>

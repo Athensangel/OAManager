@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,7 +51,7 @@ public class UserServlet extends HttpServlet {
 		request.setAttribute("userList", userList);
 		//两种跳转的区别
 		//response.sendRedirect("userList.jsp"); //这种方式跳转，数据不能带到要跳转的页面
-		request.getRequestDispatcher("/userList.jsp").forward(request,response);//这种跳转时数据会传到跳转页面
+		request.getRequestDispatcher("/views/user/userList.jsp").forward(request,response);//这种跳转时数据会传到跳转页面
 	}
 
 	/**

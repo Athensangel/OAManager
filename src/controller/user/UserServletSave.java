@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -47,7 +47,7 @@ public class UserServletSave extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect("userSave.jsp");
+		response.sendRedirect("views/user/userSave.jsp");
 	}
 
 	/**

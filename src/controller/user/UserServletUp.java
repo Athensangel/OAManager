@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -48,7 +48,7 @@ public class UserServletUp extends HttpServlet {
 		String toid = request.getParameter("toid");
 		User user = userService.queryUserById(Integer.parseInt(toid));
 		request.setAttribute("user", user);
-		request.getRequestDispatcher("/userUpdate.jsp").forward(request,response);
+		request.getRequestDispatcher("/views/user/userUpdate.jsp").forward(request,response);
 	}
 
 	/**

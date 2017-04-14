@@ -1,4 +1,4 @@
-package controller;
+package controller.department;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ProductServlet
+ * 部门Servlet
  */
-@WebServlet("/ProductServlet")
-public class ProductServlet extends HttpServlet {
+@WebServlet("/departmentServlet")
+public class DepartmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductServlet() {
+    public DepartmentServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
