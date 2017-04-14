@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.User;
 
@@ -53,9 +55,33 @@ public class JDBCOperation {
 	    }
 	    return user;
 	}
+
+	public static List<User> findAllUsers() {
+		List<User> userList = new ArrayList<User>();
+	    Connection conn = getConn();
+	    String sql = "select * from user"; 
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        //int col = rs.getMetaData().getColumnCount();
+	        while (rs.next()) {
+	        	User user = new User();
+	        	user.setToid(rs.getInt(1));
+	        	user.setUsername(rs.getString(2));
+	        	user.setPassword(rs.getString(3));
+	        	user.setRealname(rs.getString(4));
+	        	userList.add(user);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return userList;
+	}
 	
-/*	
+	
 	public static void main(String args[]) {
-	    JDBCOperation.checkLogin("ddd1", "aaa1");
-	}*/
+	    //JDBCOperation.checkLogin("ddd1", "aaa1");
+		JDBCOperation.findAllUsers();
+	}
 }

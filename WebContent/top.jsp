@@ -101,7 +101,7 @@ a:link,a:visited {
       <td align="right" height="26" style="padding-right:10px;line-height:26px;">
         	您好：<span class="username">xxx</span>，欢迎使用OA管理系统！
         	[<a href="" target="_blank">修改密码</a>]
-        	[<a href="exit" target="_top">注销退出</a>]&nbsp;
+        	[<a href="login.jsp" target="_top">注销退出</a>]&nbsp;
       </td>
       </tr>
       

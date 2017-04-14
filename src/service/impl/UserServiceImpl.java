@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.util.List;
+
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
 import model.User;
@@ -19,6 +21,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User checkUserLogin(String username, String password) {
 		return userDao.checkLogin(username, password);
+	}
+
+	@Override
+	public List<User> queryAllUsers() {
+		return userDao.findAllUsers();
 	}
 
 }

@@ -4,6 +4,7 @@ public class User {
 	private Integer toid; //主键，自动增长
 	private String username;//账号
 	private String password;//密码
+	private String realname;//真实姓名
 	public Integer getToid() {
 		return toid;
 	}
@@ -21,5 +22,11 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getRealname() {
+		return realname;
+	}
+	public void setRealname(String realname) {
+		this.realname = realname;
 	}
 }

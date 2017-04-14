@@ -18,7 +18,7 @@
           <ul class='sitemu'>
             <li>
               <div class='items'>
-                <div class='fllct'><a href='archives.html' target='main'>员工管理</a></div>
+                <div class='fllct'><a href='${pageContext.request.contextPath}/userServlet' target='main'>员工管理</a></div>
               </div>
             </li>
             <li>
