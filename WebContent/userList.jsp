@@ -91,7 +91,7 @@
 	<td>
 	 <a href="101">编辑</a> | 
 	 <a href="101">预览</a> |
-	 <a href="101">删除</a>
+	 <a href="${pageContext.request.contextPath}/userServletDel?toid=${user.toid}">删除</a>
 	 </td>
 </tr>
 </c:forEach>

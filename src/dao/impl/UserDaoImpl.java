@@ -18,4 +18,10 @@ public class UserDaoImpl implements UserDao {
 		return JDBCOperation.findAllUsers();
 	}
 
+	@Override
+	public void delUserById(Integer toid) {
+		JDBCOperation.delUserById(toid);
+	}
+
+
 }

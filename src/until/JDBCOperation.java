@@ -56,6 +56,10 @@ public class JDBCOperation {
 	    return user;
 	}
 
+	/**
+	 * 查询所有员工信息
+	 * @return
+	 */
 	public static List<User> findAllUsers() {
 		List<User> userList = new ArrayList<User>();
 	    Connection conn = getConn();
@@ -82,6 +86,24 @@ public class JDBCOperation {
 	
 	public static void main(String args[]) {
 	    //JDBCOperation.checkLogin("ddd1", "aaa1");
-		JDBCOperation.findAllUsers();
+		//JDBCOperation.findAllUsers();
+		JDBCOperation.delUserById(2);
+	}
+
+	/**
+	 * 删除员工
+	 * @param toid
+	 */
+	public static void delUserById(Integer toid) {
+	    Connection conn = getConn();
+	    String sql = "delete from user where toid= ?"; 
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        pstmt.setInt(1,toid);
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 }
