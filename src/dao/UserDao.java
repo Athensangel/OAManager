@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.User;
 /**
- * 
+ * 员工dao
  * @author Administrator
  *
  */

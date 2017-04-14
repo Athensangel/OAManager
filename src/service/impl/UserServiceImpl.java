@@ -7,6 +7,11 @@ import dao.impl.UserDaoImpl;
 import model.User;
 import service.UserService;
 
+/**
+ * 员工servcie实现类
+ * @author Administrator
+ *
+ */
 public class UserServiceImpl implements UserService{
 	private UserDao userDao  = new UserDaoImpl();
 
