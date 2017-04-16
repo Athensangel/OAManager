@@ -1,0 +1,102 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>产品</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+
+</head>
+<body leftmargin="8" topmargin="8" background='images/allbg.gif'>
+
+<!--  快速转换位置按钮  -->
+<table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#D1DDAA" align="center">
+<tr>
+ <td height="26" background="images/newlinebg3.gif">
+  <table width="98%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="right">
+    <!-- <input type='button' class="coolbg np" onClick="" value='添加产品' /> -->
+    <a href="${pageContext.request.contextPath}/productServletAdd">添加产品</a>
+ </td>
+ </tr>
+</table>
+</td>
+</tr>
+</table>
+ 
+ <!--  搜索表单  -->
+<form name='form3' action='' method='get'>
+<input type='hidden' name='dopost' value='' />
+<table width='98%'  border='0' cellpadding='1' cellspacing='1' bgcolor='#CBD8AC' align="center" style="margin-top:8px">
+  <tr bgcolor='#EEF4EA'>
+    <td background='images/wbg.gif' align='center'>
+      <table border='0' cellpadding='0' cellspacing='0'>
+        <tr>
+          <td width='90' align='center'>搜索条件：</td>
+          <td width='160'>
+          <select name='cid' style='width:150'>
+          <option value='0'>选择部门...</option>
+          	<option value='1'>部门1</option>
+			<option value='2'>部门2</option>
+          </select>
+        </td>
+        <td width='70'>
+          员工姓名：
+        </td>
+        <td width='160'>
+          	<input type='text' name='keyword' value='' style='width:150px' />
+        </td>
+        
+        <td>
+          <input name="imageField" type="image" src="images/frame/search.gif" width="45" height="20" border="0" class="np" />
+        </td>
+       </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</form>
+  
+<!--  内容列表   -->
+<form name="form2">
+
+<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
+<tr bgcolor="#E7E7E7">
+	<td height="24" colspan="4" background="images/tbg.gif">&nbsp;员工列表&nbsp;</td>
+</tr>
+<tr align="center" bgcolor="#FAFAF1" height="22">
+	<td >选择</td>
+	<td>产品</td>
+	<td>价格</td>
+	<td >操作</td>
+
+</tr>
+<c:forEach items="${productList }" var="product">
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td>
+	 <input name="id" type="checkbox" id="id" value="101" class="np">
+	</td>
+	<td><a href=''><u>${product.productName}</u></a></td>
+	<td>${product.price}</td>
+	
+	<td>
+	 <a href="${pageContext.request.contextPath}/productServletUp?toid=${product.toid}">编辑</a> | 
+	 <a href="101">预览</a> |
+	 <a href="${pageContext.request.contextPath}/productServletDel?toid=${product.toid}">删除</a>
+	 </td>
+</tr>
+</c:forEach>
+<tr align="right" bgcolor="#EEF4EA">
+	<td height="36" colspan="10" align="center">
+	<!--翻页代码 --></td>
+</tr>
+</table>
+
+</form>
+
+
+</body>
+</html>

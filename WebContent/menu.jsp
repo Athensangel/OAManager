@@ -28,7 +28,7 @@
 			</li>
             <li>
               <div class='items'>
-                <div class='fllct'><a href='archives.jsp' target='main'>产品管理</a></div>
+                <div class='fllct'><a href='${pageContext.request.contextPath}/productServlet' target='main'>产品管理</a></div>
                 </div>
             </li>
 			<li>

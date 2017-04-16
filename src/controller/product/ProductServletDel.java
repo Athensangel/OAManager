@@ -1,27 +1,29 @@
 package controller.product;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Product;
 import service.ProductService;
 import service.impl.ProductServiceImpl;
 
 /**
- * Servlet implementation class ProductServlet
+ * Servlet implementation class ProductServletDel
  */
-@WebServlet("/productServlet")
-public class ProductServlet extends HttpServlet {
+/**
+ * 删除数据
+ * @author cc
+ *
+ */
+@WebServlet("/productServletDel")
+public class ProductServletDel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private ProductService productService = new ProductServiceImpl();
-       
+   
     public ProductService getProductService() {
 		return productService;
 	}
@@ -33,7 +35,7 @@ public class ProductServlet extends HttpServlet {
 	/**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductServlet() {
+    public ProductServletDel() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,16 +44,16 @@ public class ProductServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Product> productList = productService.queryAllProducts();
-		request.setAttribute("productList", productList);
-		request.getRequestDispatcher("/views/product/productList.jsp").forward(request,response);//这种跳转时数据会传到跳转页面
+		String strToid = request.getParameter("toid");
+		int toid = Integer.parseInt(strToid);// String 转 int
+		productService.deleteProductById(toid);
+		request.getRequestDispatcher("/productServlet").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

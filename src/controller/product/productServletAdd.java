@@ -1,8 +1,7 @@
 package controller.product;
 
 import java.io.IOException;
-import java.util.List;
-
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,26 +13,16 @@ import service.ProductService;
 import service.impl.ProductServiceImpl;
 
 /**
- * Servlet implementation class ProductServlet
+ * Servlet implementation class productServletAdd
  */
-@WebServlet("/productServlet")
-public class ProductServlet extends HttpServlet {
+@WebServlet("/productServletAdd")
+public class productServletAdd extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 1L;
-	
 	private ProductService productService = new ProductServiceImpl();
-       
-    public ProductService getProductService() {
-		return productService;
-	}
-
-	public void setProductService(ProductService productService) {
-		this.productService = productService;
-	}
-
-	/**
+    /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductServlet() {
+    public productServletAdd() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,17 +31,20 @@ public class ProductServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Product> productList = productService.queryAllProducts();
-		request.setAttribute("productList", productList);
-		request.getRequestDispatcher("/views/product/productList.jsp").forward(request,response);//这种跳转时数据会传到跳转页面
+		response.sendRedirect("views/product/productAdd.jsp");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String productName = request.getParameter("productName");
+		String price = request.getParameter("price");
+		Product product = new Product();
+		product.setProductName(productName);
+		product.setPrice(Float.parseFloat(price));
+		productService.saveProduct(product);//新增
+		response.sendRedirect("productServlet");//新增成功后跳转到员工列表页
 	}
 
 }

@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class JDBCOperation {
 	public static Connection getConn() {
 	    String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://127.0.0.1:3306/sifei";
+	    String url = "jdbc:mysql://127.0.0.1:3306/sefei";
 	    String username = "root";
 	    String password = "root";
 	    Connection conn = null;
