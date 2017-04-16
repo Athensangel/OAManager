@@ -11,11 +11,11 @@
 <body>
 
 <!--  内容列表   -->
-<form name="form2" action="${pageContext.request.contextPath}/productServletAdd" method="post">
-
+<form name="form2" action="${pageContext.request.contextPath}/productServletUp" method="post">
+<input type="hidden" name="toid" value="${product.toid}"/>
 <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
-	<td height="24" colspan="13">&nbsp;产品新增&nbsp;</td>
+	<td height="24" colspan="13">&nbsp;产品修改&nbsp;</td>
 </tr>
 <tr align="center" bgcolor="#FAFAF1" height="22">
 	<td width="4%">产品名称</td>
@@ -32,7 +32,7 @@
 	翻页代码</td>
 </tr> -->
 </table>
-<input type="submit" value="新增产品" style="float: right;"/>
+<input type="submit" value="修改产品" style="float: right;"/>
 </form>
 
 

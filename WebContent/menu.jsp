@@ -23,7 +23,7 @@
             </li>
             <li>
             <div class='items'>
-                <div class='fllct'><a href='archives.jsp' target='main'>部门管理</a></div>
+                <div class='fllct'><a href='${pageContext.request.contextPath}/departmentServlet' target='main'>部门管理</a></div>
                 </div>
 			</li>
             <li>
