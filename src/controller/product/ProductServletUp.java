@@ -1,32 +1,29 @@
 package controller.product;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import model.Product;
 import service.ProductService;
 import service.impl.ProductServiceImpl;
 
 /**
- * Servlet implementation class ProductServlet
+ * Servlet implementation class ProductServletUp
  */
 /**
- * 产品列表
+ * 产品修改
  * @author cc
  *
  */
-@WebServlet("/productServlet")
-public class ProductServlet extends HttpServlet {
+@WebServlet("/productServletUp")
+public class ProductServletUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private ProductService productService = new ProductServiceImpl();
-       
+	   
     public ProductService getProductService() {
 		return productService;
 	}
@@ -35,10 +32,11 @@ public class ProductServlet extends HttpServlet {
 		this.productService = productService;
 	}
 
-	/**
+       
+    /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductServlet() {
+    public ProductServletUp() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,17 +45,25 @@ public class ProductServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Product> productList = productService.queryAllProducts();
-		request.setAttribute("productList", productList);
-		request.getRequestDispatcher("/views/product/productList.jsp").forward(request,response);//这种跳转时数据会传到跳转页面
+		String toid = request.getParameter("toid");
+		Product product = productService.queryProductById(Integer.parseInt(toid));
+		request.setAttribute("product", product);
+		request.getRequestDispatcher("/views/product/productUpdate.jsp").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String toid = request.getParameter("toid");
+		String productName = request.getParameter("productName");
+		String price = request.getParameter("price");
+		Product product = new Product();
+		product.setToid(Integer.parseInt(toid));
+		product.setProductName(productName);
+		product.setPrice(Float.parseFloat(price));
+		productService.updateProduct(product); //修改
+		response.sendRedirect("productServlet"); //修改成功后跳转到列表页
 	}
 
 }

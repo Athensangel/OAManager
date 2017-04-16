@@ -11,9 +11,14 @@ import dao.ProductDao;
 import model.Product;
 import until.JDBCOperation;
 
+/**
+ * 产品dao实现类
+ * @author cc
+ *
+ */
 public class ProductDaoImpl implements ProductDao {
 	/**
-	 * 查询所有员工信息
+	 * 查询所有产品信息
 	 * @return
 	 */
 	@Override
@@ -40,7 +45,7 @@ public class ProductDaoImpl implements ProductDao {
 
 
 	/**
-	 * 删除员工
+	 * 删除产品
 	 * @param toid
 	 */
 	@Override
@@ -58,7 +63,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	/**
-	 * 新增员工
+	 * 新增产品
 	 * @param product
 	 */
 	@Override
@@ -76,6 +81,56 @@ public class ProductDaoImpl implements ProductDao {
 	    }
 		
 	}
+	
+	
+	/**
+	 * 通过toid查询产品
+	 * @param toid
+	 * @return
+	 */
+	@Override
+	public Product findProductById(Integer toid) {
+		Connection conn = JDBCOperation.getConn();
+		Product product = new Product();
+	    String sql = "select * from product where toid=?"; 
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        pstmt.setInt(1,toid);
+	        ResultSet rs = pstmt.executeQuery();
+	        while (rs.next()) {
+	        	product.setToid(rs.getInt(1));
+	        	product.setProductName(rs.getString(2));
+	        	product.setPrice(rs.getFloat(3));
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return product;
+	}
+
+
+	/**
+	 * 通过toid修改产品
+	 * @param toid
+	 * @return
+	 */
+	@Override
+	public void updateProductById(Product product) {
+		Connection conn = JDBCOperation.getConn();
+	    String sql = "update product set productname = ?,price = ? where toid = ?"; 
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        pstmt.setString(1,product.getProductName());
+	        pstmt.setFloat(2, product.getPrice());
+	        pstmt.setInt(3, product.getToid());
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
+
 
 
 }

@@ -15,6 +15,11 @@ import service.impl.ProductServiceImpl;
 /**
  * Servlet implementation class productServletAdd
  */
+/**
+ * 产品新增
+ * @author cc
+ *
+ */
 @WebServlet("/productServletAdd")
 public class productServletAdd extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 1L;

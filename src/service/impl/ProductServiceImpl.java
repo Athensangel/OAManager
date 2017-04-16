@@ -7,6 +7,11 @@ import dao.impl.ProductDaoImpl;
 import model.Product;
 import service.ProductService;
 
+/**
+ * 产品Service实现类
+ * @author cc
+ *
+ */
 public class ProductServiceImpl implements ProductService {
 	
 	private ProductDao productDao =new ProductDaoImpl();
@@ -32,5 +37,15 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void saveProduct(Product product) {
 		productDao.insertProduct(product);
+	}
+
+	@Override
+	public Product queryProductById(Integer toid) {
+		return productDao.findProductById(toid);
+	}
+
+	@Override
+	public void updateProduct(Product product) {
+		productDao.updateProductById(product);
 	}
 }
