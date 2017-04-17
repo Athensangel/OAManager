@@ -83,7 +83,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	        pstmt.setInt(1,toid);
 	        ResultSet rs = pstmt.executeQuery();
 	        while (rs.next()) {
-	        	department.setToid(1);
+	        	department.setToid(rs.getInt(1));
 	        	department.setDepartmentname(rs.getString(2));
 	        	department.setManagerid(rs.getInt(3));
 	        }

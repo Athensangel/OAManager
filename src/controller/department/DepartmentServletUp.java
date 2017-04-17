@@ -1,8 +1,6 @@
 package controller.department;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,13 +12,19 @@ import service.DepartmentService;
 import service.impl.DepartmentServiceImpl;
 
 /**
- * 部门Servlet
+ * Servlet implementation class DepartmentServletUp
  */
-@WebServlet("/departmentServlet")
-public class DepartmentServlet extends HttpServlet {
+/**
+ * 部门修改
+ * @author Administrator
+ *
+ */
+@WebServlet("/departmentServletUp")
+public class DepartmentServletUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	private DepartmentService departmentService = new DepartmentServiceImpl();
+	private DepartmentService departmentService=new DepartmentServiceImpl();
+   
 
 	public DepartmentService getDepartmentService() {
 		return departmentService;
@@ -33,7 +37,7 @@ public class DepartmentServlet extends HttpServlet {
 	/**
      * @see HttpServlet#HttpServlet()
      */
-    public DepartmentServlet() {
+    public DepartmentServletUp() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,16 +46,25 @@ public class DepartmentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Department> departmentList = departmentService.queryAllDepartment();
-		request.setAttribute("departmentList", departmentList);
-		request.getRequestDispatcher("views/department/departmentList.jsp").forward(request,response);//这种跳转时数据会传到跳转页面
+		String toid = request.getParameter("toid");
+		Department dpartment = departmentService.queryDepartmentById(Integer.parseInt(toid));
+		request.setAttribute("department",dpartment);
+		request.getRequestDispatcher("/views/department/departmentUpdate.jsp").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		String toid = request.getParameter("toid");
+		String departmentname= request.getParameter("departmentname");
+		String managerid = request.getParameter("managerid");
+		Department department = new Department();
+		department.setToid(Integer.parseInt(toid));
+		department.setDepartmentname(departmentname);
+		department.setManagerid(Integer.parseInt(managerid));
+		departmentService.updateDepartment(department); //修改
+		response.sendRedirect("departmentServlet"); //修改成功后跳转到列表页
 	}
 
 }

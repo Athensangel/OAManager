@@ -25,7 +25,21 @@ public class OrdersServiceImpl implements OrdersService {
 
 	@Override
 	public void deleteOrdersById(Integer toid) {
-		ordersDao.delOrdersById(toid);		
+		ordersDao.delOrdersById(toid);
 	}
 
+	@Override
+	public void saveOrder(Orders order) {
+		ordersDao.saveOrder(order);;
+	}
+
+	@Override
+	public Orders queryOrderById(Integer toid) {
+		return (Orders) ordersDao.findOrdersById(toid);
+	}
+
+	@Override
+	public void updateOrder(Orders order) {
+		ordersDao.updateOrdersById(order);
+	}
 }

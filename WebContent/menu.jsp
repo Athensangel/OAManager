@@ -43,7 +43,7 @@
             </li>
 			<li>
               <div class='items'>
-                <div class='fllct'><a href='archives.jsp' target='main'>
+                <div class='fllct'><a href='${pageContext.request.contextPath}/messageServlet' target='main'>
 				我的私信<font color='red'>(2)</font></a>
 				</div>
 				</div>

@@ -26,4 +26,19 @@ public class MessageServiceImpl implements MessageService {
 		messageDao.delMessageById(toid);
 	}
 
+	@Override
+	public void saveMessage(Message message) {
+		messageDao.insertMessage(message);
+	}
+
+	@Override
+	public Message queryMessageById(Integer toid) {
+		return messageDao.findMessageById(toid);
+	}
+
+	@Override
+	public void updateMessage(Message message) {
+		messageDao.updateMessageById(message);
+	}
+
 }

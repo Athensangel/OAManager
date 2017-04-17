@@ -10,4 +10,10 @@ public interface OrdersDao {
 
 	public void delOrdersById(Integer toid);//通过toid，即主键，删除订单
 
+	public void saveOrder(Orders order);
+	
+	public Orders findOrdersById(Integer toid);
+
+	public void updateOrdersById(Orders orders);
+
 }

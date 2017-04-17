@@ -1,28 +1,30 @@
 package model;
 
+
 public class Message {
-	private Integer toid; //主键，自动增长
-	private Integer from_id; //发信人，来自员工表
-	private Integer to_id; //收信人，来自员工表
+	private Integer id; //主键，自动增长
+	private Integer fromId; //发信人，来自员工表
+	private Integer toId; //收信人，来自员工表
 	private String  content; //信息内容
-	private Character isread; //是否已读，0----未读  1---已读
-	public Integer getToid() {
-		return toid;
+	private String isRead; //是否已读，0----未读  1---已读
+	
+	public Integer getId() {
+		return id;
 	}
-	public void setToid(Integer toid) {
-		this.toid = toid;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public Integer getFrom_id() {
-		return from_id;
+	public Integer getFromId() {
+		return fromId;
 	}
-	public void setFrom_id(Integer from_id) {
-		this.from_id = from_id;
+	public void setFromId(Integer fromId) {
+		this.fromId = fromId;
 	}
-	public Integer getTo_id() {
-		return to_id;
+	public Integer getToId() {
+		return toId;
 	}
-	public void setTo_id(Integer to_id) {
-		this.to_id = to_id;
+	public void setToId(Integer toId) {
+		this.toId = toId;
 	}
 	public String getContent() {
 		return content;
@@ -30,10 +32,11 @@ public class Message {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Character getIsread() {
-		return isread;
+	public String getIsRead() {
+		return isRead;
 	}
-	public void setIsread(Character isread) {
-		this.isread = isread;
+	public void setIsRead(String isRead) {
+		this.isRead = isRead;
 	}
+
 }

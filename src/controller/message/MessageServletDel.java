@@ -1,4 +1,4 @@
-package controller.orders;
+package controller.message;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,34 +7,47 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.MessageService;
+import service.impl.MessageServiceImpl;
+
 /**
- * Servlet implementation class OrdersServlet
+ * Servlet implementation class MessageServletDel
  */
-@WebServlet("/ordersServlet")
-public class OrdersServlet extends HttpServlet {
+@WebServlet("/messageServletDel")
+public class MessageServletDel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
+    
+	private MessageService  messageService = new MessageServiceImpl();
+	
+    public MessageService getMessageService() {
+		return messageService;
+	}
+
+	public void setMessageService(MessageService messageService) {
+		this.messageService = messageService;
+	}
+
+	/**
      * @see HttpServlet#HttpServlet()
      */
-    public OrdersServlet() {
+    public MessageServletDel() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String strToid = request.getParameter("toid");
+		int toid = Integer.parseInt(strToid);// String 转 int
+		messageService.deleteMessageById(toid);
+		request.getRequestDispatcher("/messageServlet").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
