@@ -33,12 +33,7 @@
             </li>
 			<li>
               <div class='items'>
-                <div class='fllct'><a href='archives.jsp' target='main'>员工列表</a></div>
-                </div>
-            </li>
-			<li>
-              <div class='items'>
-                <div class='fllct'><a href='archives.jsp' target='main'>订单列表</a></div>
+                <div class='fllct'><a href='${pageContext.request.contextPath}/ordersServlet' target='main'>订单列表</a></div>
                 </div>
             </li>
 			<li>
@@ -60,7 +55,7 @@
             <li>
 			 <!-- <a href='' target='_blank'>修改账号</a> -->
 			  <div class='items'>
-                <div class='fllct'><a href='archives.jsp' target='main'>修改账号</a></div>
+                <div class='fllct'><a href='${pageContext.request.contextPath}/userServletUpInfo?toid=${toid}' target='main'>修改账号</a></div>
                 </div>
 			</li>
             <li>

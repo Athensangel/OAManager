@@ -20,5 +20,7 @@ public interface UserDao {
 	public User findUserById(Integer toid);
 
 	public void updateUserById(User user);
+
+	public void updateUserInfo(User user);
 	
 }

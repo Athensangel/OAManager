@@ -184,5 +184,21 @@ public class UserDaoImpl implements UserDao {
 	    }
 	}
 
+	@Override
+	public void updateUserInfo(User user) {
+		Connection conn = JDBCOperation.getConn();
+	    String sql = "update user set username = ?,password = ? where toid = ?"; 
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        pstmt.setString(1,user.getUsername());
+	        pstmt.setString(2, user.getPassword());
+	        pstmt.setInt(3, user.getToid());
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
+
 
 }

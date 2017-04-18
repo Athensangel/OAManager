@@ -74,7 +74,7 @@
 	<td >操作</td>
 
 </tr>
-<c:forEach items="${departmentList }" var="department">
+<c:forEach items="${departmentList}" var="department">
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td>
 	 <input name="id" type="checkbox" id="id" value="101" class="np">

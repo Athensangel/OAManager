@@ -1,6 +1,11 @@
 package model;
-
+/**
+ * users表所对应的实体类
+ * @author Administrator
+ *
+ */
 public class User {
+    //实体类的属性和表的字段名称一一对应
 	private Integer toid; //主键，自动增长
 	private String username;//账号
 	private String password;//密码

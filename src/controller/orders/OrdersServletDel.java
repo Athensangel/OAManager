@@ -7,35 +7,56 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.OrdersService;
+import service.impl.OrdersServiceImpl;
+
 /**
  * Servlet implementation class OrdersServletDel
+ */
+/**
+ * 订单删除
+ * @author Administrator
+ *
  */
 @WebServlet("/ordersServletDel")
 public class OrdersServletDel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public OrdersServletDel() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	private OrdersService ordersService = new OrdersServiceImpl();
+
+	public OrdersService getOrdersService() {
+		return ordersService;
+	}
+
+	public void setOrdersService(OrdersService ordersService) {
+		this.ordersService = ordersService;
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	public OrdersServletDel() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String strToid = request.getParameter("toid");
+		int toid = Integer.parseInt(strToid);// String 转 int
+		ordersService.deleteOrdersById(toid);
+		request.getRequestDispatcher("/ordersServlet").forward(request,response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 	}
 
 }

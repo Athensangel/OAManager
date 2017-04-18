@@ -90,8 +90,8 @@
 	<td>华东区</td>
 	<td>部门经理</td>
 	<td>
-	 <a href="${pageContext.request.contextPath}/userServletUp?toid=${user.toid}">编辑</a> | 
-	 <a href="101">预览</a> |
+	 <a href="${pageContext.request.contextPath}/userServletUp?toid=${user.toid}">编辑</a> 
+	 <a href="101">预览</a> 
 	 <a href="${pageContext.request.contextPath}/userServletDel?toid=${user.toid}">删除</a>
 	 </td>
 </tr>
