@@ -13,14 +13,14 @@ public interface UserDao {
 
 	public List<User> findAllUsers();//查询所有员工信息
 
-	public void delUserById(Integer toid);//通过toid，即主键，删除员工
+	public void delUserById(Integer toid);//通过toId，即主键，删除员工
 
-	public void insertUser(User user);
+	public void insertUser(User user);//新增员工
 
-	public User findUserById(Integer toid);
+	public User findUserById(Integer toid);//通过toId查询员工
 
-	public void updateUserById(User user);
+	public void updateUserById(User user);//通过toId修改员工
 
-	public void updateUserInfo(User user);
+	public void updateUserInfo(User user);//修改信息
 	
 }

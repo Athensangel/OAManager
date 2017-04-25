@@ -165,7 +165,7 @@ public class UserDaoImpl implements UserDao {
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
-	        pstmt.setString(1,user.getUsername());
+	        pstmt.setString(1,user.getUsername());		//setString 是为第一个参数设置一个 string 类型的值testNumber
 	        pstmt.setString(2, user.getPassword());
 	        pstmt.setString(3, user.getRealname());
 	        pstmt.setString(4,user. getSex());
