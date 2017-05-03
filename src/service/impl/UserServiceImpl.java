@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> queryAllUsers() {
-		return userDao.findAllUsers();
+	public List<User> queryAllUsers(String realname) {
+		return userDao.findAllUsers(realname);
 	}
 
 	@Override

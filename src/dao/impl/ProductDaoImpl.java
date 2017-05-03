@@ -79,7 +79,6 @@ public class ProductDaoImpl implements ProductDao {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
-		
 	}
 	
 	

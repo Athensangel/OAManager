@@ -1,5 +1,3 @@
-<!--
-
 function showHide(objname)
 {
 	//只对主菜单设置cookie

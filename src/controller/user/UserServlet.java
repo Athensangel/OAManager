@@ -47,7 +47,8 @@ public class UserServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<User> userList = userService.queryAllUsers();
+		String realname =request.getParameter("realname");
+		List<User> userList = userService.queryAllUsers(realname);
 		request.setAttribute("userList", userList);
 		//两种跳转的区别
 		//response.sendRedirect("userList.jsp"); //这种方式跳转，数据不能带到要跳转的页面

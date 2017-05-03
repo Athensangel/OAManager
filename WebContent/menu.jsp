@@ -55,7 +55,7 @@
             <li>
 			 <!-- <a href='' target='_blank'>修改账号</a> -->
 			  <div class='items'>
-                <div class='fllct'><a href='${pageContext.request.contextPath}/userServletUpInfo?toid=${toid}' target='main'>修改账号</a></div>
+                <div class='fllsct'><a href='${pageContext.request.contextPath}/userServletUpInfo?toid=${toid}' target='main'>修改账号</a></div>
                 </div>
 			</li>
             <li>

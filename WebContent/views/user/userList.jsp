@@ -28,8 +28,7 @@
 </table>
  
  <!--  搜索表单  -->
-<form name='form3' action='' method='get'>
-<input type='hidden' name='dopost' value='' />
+<form name='form3' action='${pageContext.request.contextPath}/userServlet' method='get'>
 <table width='98%'  border='0' cellpadding='1' cellspacing='1' bgcolor='#CBD8AC' align="center" style="margin-top:8px">
   <tr bgcolor='#EEF4EA'>
     <td background='images/wbg.gif' align='center'>
@@ -47,7 +46,7 @@
           员工姓名：
         </td>
         <td width='160'>
-          	<input type='text' name='keyword' value='' style='width:150px' />
+          	<input type='text' name='realname' value='' style='width:150px' />
         </td>
         
         <td>
@@ -58,10 +57,8 @@
     </td>
   </tr>
 </table>
-</form>
   
 <!--  内容列表   -->
-<form name="form2">
 
 <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">

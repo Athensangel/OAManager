@@ -45,13 +45,19 @@ public class UserDaoImpl implements UserDao {
 	 * @return
 	 */
 	@Override
-	public List<User> findAllUsers() {
+	public List<User> findAllUsers(String realname) {
 		Connection conn = JDBCOperation.getConn();
 		List<User> userList = new ArrayList<User>();
-	    String sql = "select * from user"; 
+		StringBuffer stringBuffer = new StringBuffer("select * from user a ");
+		if(realname !=null){
+			stringBuffer.append("WHERE a.realname LIKE ?");
+		}
 	    PreparedStatement pstmt;
 	    try {
-	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        pstmt = (PreparedStatement)conn.prepareStatement(stringBuffer.toString());
+	        if(realname !=null){
+	        	pstmt.setString(1, "%" + realname + "%" );
+			}
 	        ResultSet rs = pstmt.executeQuery();
 	        while (rs.next()) {
 	        	User user = new User();
