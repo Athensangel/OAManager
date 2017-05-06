@@ -23,4 +23,6 @@ public interface UserDao {
 
 	public void updateUserInfo(User user);//修改信息
 	
+	int updateCount(Integer toid);//更新浏览量
+	
 }

@@ -61,4 +61,9 @@ public class UserServiceImpl implements UserService{
 		
 	}
 
+	@Override
+	public int updateCount(Integer toid) {
+		return userDao.updateCount(toid);
+	}
+
 }

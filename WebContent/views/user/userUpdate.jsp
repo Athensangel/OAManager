@@ -15,7 +15,7 @@
 <input type="hidden" name="toid" value="${user.toid}"/>
 <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
-	<td height="24" colspan="13">&nbsp;员工新增&nbsp;</td>
+	<td height="24" colspan="13">&nbsp;员工修改&nbsp;<font color="red">(${user.count})</font></td>
 </tr>
 <tr align="center" bgcolor="#FAFAF1" height="22">
 	<td width="4%">选择</td>
@@ -56,9 +56,8 @@
 	翻页代码</td>
 </tr> -->
 </table>
+<a href="javascript:window.history.go(-1)" style="float: right;">返回</a>
 <input type="submit" value="修改员工" style="float: right;"/>
 </form>
-
-
 </body>
 </html>

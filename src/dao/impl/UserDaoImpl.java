@@ -151,6 +151,7 @@ public class UserDaoImpl implements UserDao {
 		        user.setSalary(rs.getFloat(11));
 		        user.setDepartid(rs.getInt(12));
 		        user.setRole(rs.getString(13));
+		        user.setCount(rs.getInt(15));
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
@@ -204,6 +205,22 @@ public class UserDaoImpl implements UserDao {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	}
+
+	@Override
+	public int updateCount(Integer toid) {
+		Connection conn = JDBCOperation.getConn();
+	    String sql = "update user set count = count+1 where toid = ?"; 
+	    PreparedStatement pstmt;
+	    int result = 0;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        pstmt.setInt(1,toid);
+	        result = pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return result;
 	}
 
 

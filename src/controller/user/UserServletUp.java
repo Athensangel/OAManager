@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import model.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
@@ -21,6 +23,7 @@ import service.impl.UserServiceImpl;
  */
 @WebServlet("/userServletUp")
 public class UserServletUp extends HttpServlet {
+	private static Logger logger = Logger.getLogger(UserServletUp.class);  
 	private static final long serialVersionUID = 1L;
 	
 	private UserService userService = new UserServiceImpl();
@@ -46,6 +49,8 @@ public class UserServletUp extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String toid = request.getParameter("toid");
+		userService.updateCount(Integer.parseInt(toid));//更新浏览量
+		logger.info("+++++++++++++++++更新浏览量+++++++++++++++");
 		User user = userService.queryUserById(Integer.parseInt(toid));
 		request.setAttribute("user", user);
 		request.getRequestDispatcher("/views/user/userUpdate.jsp").forward(request,response);

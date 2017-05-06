@@ -17,5 +17,6 @@ public interface UserService {
 	public User queryUserById(Integer toid);//通过toid查找员工
 	public void updateUser(User user);//修改员工
 	public void updateUserInfo(User user);//修改员工
+	int updateCount(Integer toid);//更新浏览量
 	
 }

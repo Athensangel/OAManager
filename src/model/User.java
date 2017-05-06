@@ -20,6 +20,7 @@ public class User {
 	private Integer departid;//所属部门，来自department表
 	private String role;//admin---管理员  manager---部门经理   saler---普通员工（销售人员）
 	private String validateCode;//验证码
+	private Integer count;//访问量
 	public  Integer getToid() {
 		return toid;
 	}
@@ -103,5 +104,11 @@ public class User {
 	}
 	public void setValidateCode(String validateCode) {
 		this.validateCode = validateCode;
+	}
+	public Integer getCount() {
+		return count;
+	}
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 }
