@@ -37,6 +37,14 @@
 		  <input type="password" name="password" />
 		  </td>
         </tr>
+        <tr>
+          <td width="15%" height="31" align="center">
+		   验证码：
+		  </td>
+		  <td  height="31" align="center">
+		  <input type="text" name="validateCode" /><img src="${pageContext.request.contextPath}/validateCodeServlet" style="width: 133px;height: 20px;">
+		  </td>
+        </tr>
 		<tr>
           <td width="15%" height="31" align="center">
 		    <input type="submit" value="登录" />

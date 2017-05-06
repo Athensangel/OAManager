@@ -53,8 +53,16 @@ public class loginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String sUserName = request.getParameter("username");
 		String sPasswd = request.getParameter("password");
+		String currentValidateCode = request.getParameter("validateCode");
+		String sessionValidateCode = (String) request.getSession().getAttribute("validateCode");
 		System.out.println("username:" + sUserName + "\r\n" + "password:" + sPasswd);
-
+		if("".equals(currentValidateCode)){
+			System.out.println("验证码为空");
+			response.sendRedirect("login.jsp");
+		}else if(!currentValidateCode.equals(sessionValidateCode)){
+			System.out.println("验证码输入有误");
+			response.sendRedirect("login.jsp");
+		}else{
 		User user = userService.checkUserLogin(sUserName, sPasswd);
 		if (sUserName.equals(user.getUsername()) && sPasswd.equals(user.getPassword())) {
 			response.sendRedirect("index.jsp");
@@ -63,6 +71,7 @@ public class loginServlet extends HttpServlet {
 			request.getSession().setAttribute("toid", user.getToid());
 		} else {
 			response.sendRedirect("login.jsp");
+		}
 		}
 
 	}

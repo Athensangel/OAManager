@@ -19,7 +19,7 @@ public class User {
 	private Float  salary;//薪水
 	private Integer departid;//所属部门，来自department表
 	private String role;//admin---管理员  manager---部门经理   saler---普通员工（销售人员）
-	
+	private String validateCode;//验证码
 	public  Integer getToid() {
 		return toid;
 	}
@@ -97,5 +97,11 @@ public class User {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getValidateCode() {
+		return validateCode;
+	}
+	public void setValidateCode(String validateCode) {
+		this.validateCode = validateCode;
 	}
 }
